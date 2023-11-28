@@ -1,29 +1,30 @@
 local crusader = {}
 
-crusader.description = "Um guerreiro especilista em espadas, tem um excelente ataque e também uma boa defesa, porém uma baixa vida"
-crusader.className = "Crusader" or "crusader" or "CRUSADER"
-crusader.maxLife = 2500
-crusader.attack = 10000
-crusader.def = 4000
+local description = "Um guerreiro especilista em espadas, tem um excelente ataque e também uma boa defesa, porém uma baixa vida"
+local className = "crusader"
+local maxLife = 2500
+local attack = 10000
+local def = 4000
 
--- function crusader.getDescription()
---     return crusader.description
--- end
 
--- local function getClassName()
---     return crusader.className
--- end
+function crusader.getDescription()
+    return description
+end
 
--- local function getMaxLife()
---     return crusader.maxLife
--- end
+function crusader.getClassName()
+    return className
+end
 
--- local function getAttack()
---     return crusader.attack
--- end
+function crusader.getMaxLife()
+    return maxLife
+end
 
--- local function getDef()
---     return crusader.def
--- end
+function crusader.getAttack()
+    return attack
+end
+
+function crusader.getDef()
+    return def
+end
 
 return crusader

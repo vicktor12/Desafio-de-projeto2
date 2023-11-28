@@ -1,117 +1,90 @@
+local crusader = require("characters.crusader")
+local champion = require("characters.champion")
+
 ---Cria um modulo dos atributos dos chars
 local attributes = {}
 
-attributes.name = ""
-attributes.class = ""
-attributes.maxLife = 0
-attributes.life = 0
-attributes.attack = 0
-attributes.def = 0
-attributes.exp = 0
+local name = ""
+local class = ""
+local maxLife = 0
+local life = 0
+local attack = 0
+local def = 0
+local exp = 0
 
-local function setName(name)
-    attributes.name = name
+function attributes.setName(name)
+    name = name
 end
 
-local function setClass(class)
-    attributes.class = class
+function attributes.setClass(class)
+    class = class
 end
 
-local function getClass()
-    return attributes.class
+function attributes.getClass()
+    return class
 end
 
-local function setLife(life)
-    attributes.life = life
+function attributes.setLife(life)
+   life = life
 end
 
-local function setAttack(attack)
-    if getClass() == "Crusader" then
-        attributes.attack = 10000
+function attributes.setAttack()
+    if attributes.getClass() == crusader.getClassName() then
+       attack = 10000
     end
-    if getClass() == "champion" then
-        attributes.attack = 6000
-    end
-    if getClass() == "sealmaster" then
-        attributes.attack = 3800
-    end
-    if getClass() == "cleric" then
-        attributes.attack = 3800
-    end
-    if getClass() == "sharpshooter" then
-        attributes.attack = 4230
+    if attributes.getClass() == champion.getClassName() then
+        attack = 6000
     end
 end
 
-local function setDef(def)
-    if getClass() == "crusader" then
-        attributes.def = 4000
+function attributes.setDef(def)
+    if attributes.getClass() == crusader.getClassName() then
+       def = 4000
     end
-    if getClass() == "champion" then
-        attributes.def = 8000
-    end
-    if getClass() == "sealmaster" then
-        attributes.def = 2600
-    end
-    if getClass() == "cleric" then
-        attributes.def = 2600
-    end
-    if getClass() == "sharpshooter" then
-        attributes.def = 1900
+    if attributes.getClass() == champion.getClassName() then
+        def = 8000
     end
 end
 
-local function setMaxLife()
-    if getClass() == "Crusader" then
-        attributes.maxLife = 2500
-        setLife(attributes.maxLife)
+function attributes.setMaxLife()
+    if attributes.getClass() == crusader.getClassName() then
+        maxLife = 2500
+        attributes.setLife(maxLife)
     end
-    if getClass() == "champion" then
-        attributes.maxLife = 6000
-        setLife(attributes.maxLife)
-    end
-    if getClass() == "sealmaster" then
-        attributes.maxLife = 1800
-        setLife(attributes.maxLife)
-    end
-    if getClass() == "cleric" then
-        attributes.maxLife = 1800
-        setLife(attributes.maxLife)
-    end
-    if getClass() == "sharpshooter" then
-        attributes.maxLife = 2640
-        setLife(attributes.maxLife)
+    if attributes.getClass() == champion.getClassName() then
+        maxLife = 6000
+        attributes.setLife(maxLife)
     end
 end
 
-local function setExp(exp)
+function attributes.setExp(exp)
     attributes.exp = exp
 end
 
 -- Inicio dos Getters
 
-local function getName()
-    return attributes.name
+function attributes.getName()
+    return name
 end
 
-local function getMaxLife()
-    return attributes.maxLife
+function attributes.getMaxLife()
+    return maxLife
 end
 
-local function getLife()
-    return attributes.life
+function attributes.getLife()
+    return life
 end
 
-local function getAttack()
-    return attributes.attack
+function attributes.getAttack()
+    return attack
 end
 
-local function getDef()
-    return attributes.def
+function attributes.getDef()
+    return def
 end
 
-local function getExp()
-    return attributes.exp
+function attributes.getExp()
+    return exp
 end
 
 

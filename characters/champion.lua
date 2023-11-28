@@ -1,30 +1,29 @@
 local champion = {}
 
-champion.description = "Um grande guerreiro de grande porte! Tem uma guarda bem alta e uma boa defesa, porém pelo seu tamanho seu ataque é baixo "
-champion.className = "Champion"
-champion.maxLife = 6000
-champion.attack = 1300
-champion.def = 8000
+local description = "Um grande guerreiro de grande porte! Tem uma guarda bem alta e uma boa defesa, porém pelo seu tamanho seu ataque é baixo "
+local className = "Champion"
+local maxLife = 6000
+local attack = 1300
+local def = 8000
 
-local function getDescription()
-    return champion.description
+function champion.getDescription()
+    return description
 end
 
-local function getClassName()
-    return champion.className
+function champion.getClassName()
+    return className
 end
 
-local function getMaxLife()
-    return champion.maxLife
+function champion.getMaxLife()
+    return maxLife
 end
 
-
-local function getAttack()
-    return champion.attack
+function champion.getAttack()
+    return attack
 end
 
-local function getDef()
-    return champion.def
+function champion.getDef()
+    return def
 end
 
 return champion
