@@ -11,6 +11,8 @@ utils.enableUTF8()
 --Header
 utils.printHeader()
 
+
+
 print([[
     Deseja iniciar o jogo?
     ----------------------
@@ -18,13 +20,13 @@ print([[
 ]])
 local response = io.read()
 
-if response == "sim" or "Sim" or "SIM" then
+if response == "sim" then
     print("Primeiro você deve escolher com qual Classe irá jogar!")
     print()
     print("Deseja ver todas as classes disponiveis e seus atributos?")
     local responseClass = io.read()
     ---Mostra as Classes e suas descrições
-    if responseClass == "sim" or "Sim" or "SIM" then
+    if responseClass == "sim" then
         print("Certo, as classes disponiveis são as seguintes: ")
         print()
         print("⚔️  " .. crusader.getClassName() .. "⚔️")
@@ -32,45 +34,45 @@ if response == "sim" or "Sim" or "SIM" then
         print(crusader.getDescription())
         print("===================================================")
         print()
-        print("🗡️  " .. champion.className .. "🗡️")
+        print("🗡️  " .. champion.getClassName() .. "🗡️")
         print()
-        print(champion.description)
+        print(champion.getDescription())
         print("===================================================")
-        
-    end
-    print("Deseja ver os atributos de cada classe?")
-    local responseAttributes = io.read()
-    if responseAttributes == "sim" or "Sim" or "SIM" then
-        print("Escolha a classe que deseja ver os atributos")
-        local responseClassAttributes = io.read()
-        if responseClassAttributes == "crusader" or "Crusader" then
-            print(string.format("Os atributos de um %s são: ", crusader.getClassName()))
-            print()
-            print("Vida máxima ❤️: " .. crusader.getMaxLife())
-            print("Ataque ⚔️: " .. crusader.getAttack())
-            print("Defesa 🛡️: " .. crusader.getDef())
-        elseif responseClassAttributes == "champion" or "Champion" then
-            print(string.format("Os atributos de um %s são: ", champion.getClassName()))
-            print()
-            print("Vida máxima ❤️: " .. champion.getMaxLife())
-            print("Ataque ⚔️: " .. champion.getAttack())
-            print("Defesa 🛡️: " .. champion.getDef())
+        print()
+        print("Deseja ver os atributos de cada classe?")
+        local responseAttributes = io.read()
+        if responseAttributes == "sim" then
+            print("Escolha a classe que deseja ver os atributos")
+            local responseClassAttributes = io.read()
+            if responseClassAttributes == crusader.getClassName() then
+                crusader.getAttributes()
+                print()
+                print("Deseja ver os atributos da outras classe?")
+                local responseOtherClass = io.read()
+                if responseOtherClass == "sim" then
+                    champion.getAttributes()
+                    utils.awnserNo()
+                elseif responseOtherClass == "nao" then
+                    utils.awnserNo()
+                end
+            elseif responseClassAttributes == champion.getClassName() then
+                champion.getAttributes()
+                print("Deseja ver os atributos da outras classe?")
+                local responseOtherClass = io.read()
+                if responseOtherClass == "sim" then
+                    crusader.getAttributes()
+                elseif responseOtherClass == "nao" then
+                    utils.awnserNo()
+                end
+            end
+        elseif responseAttributes == "nao" then
+            utils.awnserNo()
         end
-    elseif responseAttributes == "nao" or "Não" or "não" then
-        print("Certo, pode digitar abaixo com qual classe deseja jogar")
-        attributes.setClass(io.read())
-        print("Agora escolha o nome do seu persnagem")
-        attributes.setName(io.read())
-        print("Segue as informações do seu char")
-        print("=======================================")
-        print("Guerreiro 🤺 ")
-        print("Nome -->          " .. attributes.getName())
-        print("Classe -->        " .. attributes.getClass())
-        print("Vida máxima -->   " .. attributes.getMaxLife())
-        print("Ataque -->        " .. attributes.getAttack())
-        print("Defesa -->        " .. attributes.getDef())
-        print("EXP -->           " .. attributes.getExp())
+    elseif responseClass == "nao" then
+        utils.awnserNo()
     end
-else
-
+    
+    
+else 
+    print("Certo! irei te esperar aqui para quando quiser jogar!!!")
 end

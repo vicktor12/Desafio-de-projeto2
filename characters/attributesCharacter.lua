@@ -87,5 +87,29 @@ function attributes.getExp()
     return exp
 end
 
+function attributes.printCard(class)
+    if class == crusader.getClassName() then
+        print("Segue as informações do seu char")
+        print("=======================================")
+        print("Guerreiro 🤺 ")
+        print("Nome -->          " .. name)
+        print("Classe -->        " .. crusader.getClassName())
+        print("Vida máxima -->   " .. crusader.getMaxLife())
+        print("Ataque -->        " .. crusader.getAttack())
+        print("Defesa -->        " .. crusader.getDef())
+        print("EXP -->           " .. attributes.getExp())
+    elseif class == champion.getClassName() then
+        print("Segue as informações do seu char")
+        print("=======================================")
+        print("Guerreiro 🤺 ")
+        print("Nome -->          " .. name)
+        print("Classe -->        " .. champion.getClassName())
+        print("Vida máxima -->   " .. champion.getMaxLife())
+        print("Ataque -->        " .. champion.getAttack())
+        print("Defesa -->        " .. champion.getDef())
+        print("EXP -->           " .. attributes.getExp())
+    end
+    
+end
 
 return attributes

@@ -27,4 +27,14 @@ function crusader.getDef()
     return def
 end
 
+function crusader.getAttributes()
+    print()
+    print(string.format("Os atributos de um %s são: ", crusader.getClassName()))
+    print()
+    print("Vida máxima ❤️: " .. crusader.getMaxLife())
+    print("Ataque ⚔️: " .. crusader.getAttack())
+    print("Defesa 🛡️: " .. crusader.getDef())
+    print()
+end
+
 return crusader

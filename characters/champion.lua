@@ -26,4 +26,14 @@ function champion.getDef()
     return def
 end
 
+function champion.getAttributes()
+    print()
+    print(string.format("Os atributos de um %s são: ", champion.getClassName()))
+    print()
+    print("Vida máxima ❤️: " .. champion.getMaxLife())
+    print("Ataque ⚔️: " .. champion.getAttack())
+    print("Defesa 🛡️: " .. champion.getDef())
+    print()
+end
+
 return champion
